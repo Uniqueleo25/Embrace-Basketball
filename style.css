@@ -8,9 +8,22 @@
     font-family: Arial, sans-serif;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
 body {
     background: #0f0f0f;
     color: white;
+    width: 100%;
+}
+
+/* GLOBAL IMAGE FIX */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* =========================
@@ -48,10 +61,16 @@ header h1 {
     text-align: center;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav a {
     color: white;
     margin-left: 15px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 nav a:hover {
@@ -70,7 +89,7 @@ nav a:hover {
 ========================= */
 .hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     overflow: hidden;
 }
@@ -80,23 +99,25 @@ nav a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
 .hero-overlay {
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .hero-text {
     text-align: center;
+    max-width: 900px;
 }
 
 .hero-text h2 {
@@ -107,6 +128,7 @@ nav a:hover {
 .hero-text p {
     margin-top: 10px;
     font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 /* =========================
@@ -120,6 +142,7 @@ nav a:hover {
     color: black;
     border-radius: 6px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .btn:hover {
@@ -153,7 +176,7 @@ section {
 }
 
 /* =========================
-   COACH FIXED PROPERLY
+   COACH CARD
 ========================= */
 .coach-card {
     max-width: 600px;
@@ -183,7 +206,7 @@ section {
 }
 
 /* =========================
-   GALLERY (FIXED SPACING)
+   GALLERY
 ========================= */
 .gallery-grid {
     display: grid;
@@ -220,6 +243,7 @@ section {
     justify-content: center;
     align-items: center;
     z-index: 999;
+    padding: 20px;
 }
 
 #lightbox img {
@@ -265,15 +289,30 @@ footer {
 ========================= */
 @media (max-width: 768px) {
 
+    header {
+        padding: 10px 15px;
+    }
+
+    .header-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    header h1 {
+        font-size: 14px;
+    }
+
     nav {
         position: absolute;
-        top: 60px;
-        right: 0;
+        top: 70px;
+        right: 10px;
         background: black;
         width: 200px;
         display: none;
         flex-direction: column;
-        padding: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        z-index: 1001;
     }
 
     nav a {
@@ -290,5 +329,34 @@ footer {
 
     .hero-text h2 {
         font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
+
+    .coach-card {
+        padding: 20px;
+    }
+
+    .coach-img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .gallery-grid img {
+        height: 120px;
+    }
+
+    .btn {
+        padding: 10px 20px;
     }
 }
