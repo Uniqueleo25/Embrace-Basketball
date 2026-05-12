@@ -1,3 +1,6 @@
+/* =========================
+   RESET
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +13,9 @@ body {
     color: white;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 header {
     position: fixed;
     width: 100%;
@@ -20,13 +25,27 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 10px 30px;
     z-index: 1000;
+}
+
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 5px;
 }
 
 header h1 {
     color: orange;
-    font-size: 20px;
+    font-size: 18px;
+    text-align: center;
 }
 
 nav a {
@@ -39,7 +58,6 @@ nav a:hover {
     color: orange;
 }
 
-/* HAMBURGER */
 .menu-toggle {
     display: none;
     font-size: 28px;
@@ -47,13 +65,28 @@ nav a:hover {
     color: white;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero {
+    position: relative;
     height: 100vh;
-    background: url('images/hero.jpg') center/cover no-repeat;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
 }
 
 .hero-overlay {
+    position: relative;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.6);
@@ -67,7 +100,7 @@ nav a:hover {
 }
 
 .hero-text h2 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: orange;
 }
 
@@ -76,7 +109,9 @@ nav a:hover {
     font-size: 1.2rem;
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 .btn {
     display: inline-block;
     margin-top: 20px;
@@ -91,13 +126,17 @@ nav a:hover {
     background: white;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 section {
     padding: 80px 20px;
     text-align: center;
 }
 
-/* CARDS */
+/* =========================
+   CARDS (SCHEDULE)
+========================= */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -113,28 +152,84 @@ section {
     border: 1px solid orange;
 }
 
-/* COACH */
+/* =========================
+   COACH FIXED PROPERLY
+========================= */
+.coach-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid orange;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coach-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid orange;
+    margin-bottom: 15px;
+}
+
 .highlight {
     color: orange;
     font-weight: bold;
 }
 
-/* GALLERY */
+/* =========================
+   GALLERY (FIXED SPACING)
+========================= */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
-    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 220px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* JOIN */
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* =========================
+   JOIN + FOOTER
+========================= */
 .join {
     background: #111;
 }
@@ -144,7 +239,6 @@ section {
     color: #aaa;
 }
 
-/* FOOTER */
 footer {
     padding: 20px;
     text-align: center;
@@ -152,7 +246,9 @@ footer {
     color: #777;
 }
 
-/* ANIMATION */
+/* =========================
+   ANIMATION
+========================= */
 .hidden {
     opacity: 0;
     transform: translateY(40px);
@@ -164,7 +260,9 @@ footer {
     transform: translateY(0);
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
 
     nav {
@@ -193,100 +291,4 @@ footer {
     .hero-text h2 {
         font-size: 2rem;
     }
-}
-/* COACH SECTION CARD */
-.coach-card {
-    text-align: center;
-    background: #1a1a1a;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid orange;
-    max-width: 600px;
-    margin: auto;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    transition: 0.3s ease;
-}
-
-.coach-card:hover {
-    transform: translateY(-5px);
-}
-
-/* COACH IMAGE */
-.coach-img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid orange;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(255,165,0,0.3);
-}
-
-/* TEXT STYLING */
-.coach-card h3 {
-    color: orange;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-.coach-card p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-    color: #ddd;
-}
-
-/* HIGHLIGHT TEXT */
-.highlight {
-    color: orange;
-    font-weight: bold;
-}.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-    border-radius: 5px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.05);
-}
-
-/* LIGHTBOX STYLE */
-#lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
 }
